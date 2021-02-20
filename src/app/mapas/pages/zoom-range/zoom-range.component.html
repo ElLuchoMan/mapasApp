@@ -1,18 +1,18 @@
-<div id="mapa" class="mapa-container"></div>
+<div #mapa class="mapa-container"></div>
 <div class="row">
     <div class="col-12">
         <label class="form-label">
-            Zoom:16
+            Zoom:{{zoomLevel | number:'2.0-2'}}
             -Lng,Lat: [123,456]
 
         </label>
-        <input type="range" class="form-range" id="customRange1">
+        <input type="range" class="form-range" [value]="zoomLevel" min="0" max="19" (click)="zoomCambio(zoomInput.value)" #zoomInput>
     </div>
     <div class="col-12">
-        <button class="btn btn-primary">
+        <button (click)="zoomOut()" class="btn btn-primary">
             -
         </button>
-        <button class="btn btn-primary float-end">
+        <button (click)="zoomIn()" class="btn btn-primary float-end">
             +
         </button>
     </div>
